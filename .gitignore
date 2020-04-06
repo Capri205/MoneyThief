@@ -5,3 +5,4 @@ target/*
 .project
 MoneyThief.iml
 dependency-reduced-pom.xml
+/target/
