@@ -22,6 +22,7 @@ public class Config {
     /**
      * Metrics
      */
+/*
     public static final class Metrics {
         public static boolean isMetrics() {
             return metrics;
@@ -29,7 +30,7 @@ public class Config {
 
         private static boolean metrics;
     }
-
+*/
     /**
      * General
      */
@@ -199,7 +200,7 @@ public class Config {
      */
     public void reload(FileConfiguration config) {
         //Metrics
-        Metrics.metrics = config.getBoolean("metrics");
+//        Metrics.metrics = config.getBoolean("metrics");
 
         //General
         General.checkUpdate = config.getBoolean("update-check");

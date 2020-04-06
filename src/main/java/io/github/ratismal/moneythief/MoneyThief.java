@@ -2,7 +2,6 @@ package io.github.ratismal.moneythief;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
@@ -13,21 +12,19 @@ import io.github.ratismal.moneythief.handler.CommandHandler;
 import io.github.ratismal.moneythief.handler.EntityKillerListener;
 import io.github.ratismal.moneythief.handler.PlayerKillerListener;
 import io.github.ratismal.moneythief.config.Config;
-import io.github.ratismal.moneythief.util.FanfarePlayer;
 import net.milkbowl.vault.economy.Economy;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-import org.mcstats.Metrics;
+//import org.mcstats.Metrics;
 //import org.mcstats.Metrics;
 
 public class MoneyThief extends JavaPlugin {
@@ -86,7 +83,7 @@ public class MoneyThief extends JavaPlugin {
 
         currentVersionTitle = getDescription().getVersion().split("-")[0];
         currentVersion = Double.valueOf(currentVersionTitle.replaceFirst("\\.", ""));
-
+/*
         if (Config.Metrics.isMetrics()) {
             try {
                 Metrics metrics = new Metrics(this);
@@ -96,7 +93,7 @@ public class MoneyThief extends JavaPlugin {
                 Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "[MoneyThief] Metrics failed to start");
             }
         }
-
+/*
         /**
          * Initiate update checker
          */

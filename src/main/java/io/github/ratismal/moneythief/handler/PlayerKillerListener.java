@@ -8,6 +8,11 @@ import io.github.ratismal.moneythief.util.MessageProcessor;
 import io.github.ratismal.moneythief.util.PermissionChecker;
 import net.milkbowl.vault.economy.Economy;
 
+import java.util.Iterator;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
@@ -18,9 +23,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.permissions.PermissionAttachmentInfo;
 
 public class PlayerKillerListener implements Listener {
 
+	static Logger log = Logger.getLogger("Minecraft");
+ 
     Economy econ;
     MoneyThief plugin;
     FanfarePlayer music;
@@ -44,21 +52,62 @@ public class PlayerKillerListener implements Listener {
     public void onDeath(PlayerDeathEvent event) {
         this.music = new FanfarePlayer(this.plugin);
         Player killerEntity = event.getEntity().getKiller();
+        
+        // get permission set - need to do this as getEntity().hasPermission isn't working presently
+        Set<PermissionAttachmentInfo>  perms = event.getEntity().getEffectivePermissions();
+        Iterator<PermissionAttachmentInfo> itr = perms.iterator();
+        int i = 0;
+        boolean hasPerm = false;
+        
         /**
          * Event is PVP
          */
-        if ((Bukkit.getOnlinePlayers().contains(killerEntity)) && (killerEntity.hasPermission("moneythief.PVP"))) {
-
-            if ((event.getEntity().hasPermission("moneythief.bypassPVP"))) {
+        //log.log(Level.INFO,"[MoneyThief] debug - in onDeath");
+        //log.log(Level.INFO,"[MoneyThief] debug - contains killerentity: "+Bukkit.getOnlinePlayers().contains(killerEntity));
+        /*
+        if (killerEntity instanceof Player) {
+        	log.log(Level.INFO,"[MoneyThief] debug - is Player: yes");
+        } else {
+        	log.log(Level.INFO,"[MoneyThief] debug - is Player: no");
+        }
+        */
+        if ((killerEntity instanceof Player) && (Bukkit.getOnlinePlayers().contains(killerEntity)) && (killerEntity.hasPermission("moneythief.PVP"))) {
+            //log.log(Level.INFO,"[MoneyThief] debug - moneythief.PVP: "+killerEntity.hasPermission("moneythief.PVP"));
+            //log.log(Level.INFO,"[MoneyThief] debug - moneythief.bypassPVP: "+event.getEntity().hasPermission("moneythief.bypassPVP"));
+            //log.log(Level.INFO,"[MoneyThief] debug - event.getEntity: "+event.getEntity().getName());
+            
+            while(itr.hasNext()) {
+            	i++;
+            	String permy = itr.next().getPermission();
+            	//log.log(Level.INFO,"[MoneyThief] debug - perm "+i+" - "+permy);
+            	if (permy.equals("moneythief.bypassPVP")) {
+            		hasPerm = true;
+            		//log.log(Level.INFO,"[MoneyThief] debug - ohes the noes! We have that perm!");
+            	}
+            }
+            //if ((event.getEntity().hasPermission("moneythief.bypassPVP"))) {
+            if (hasPerm == true) {
                 return;
             }
+            //log.log(Level.INFO,"[MoneyThief] debug - calling pvp for event "+event.getEventName());
             pvp(event);
 
             /**
              * Event is PVE
              */
         } else/* if (!(event.getEntity().getKiller() instanceof Player)) */ {
-            if ((event.getEntity().hasPermission("moneythief.bypassPVE"))) {
+
+            while(itr.hasNext()) {
+            	i++;
+            	String permy = itr.next().getPermission();
+            	//log.log(Level.INFO,"[MoneyThief] debug - perm "+i+" - "+permy);
+            	if (permy.equals("moneythief.bypassPVE")) {
+            		hasPerm = true;
+            		//log.log(Level.INFO,"[MoneyThief] debug - ohes the noes! We have that perm!");
+            	}
+            }
+            //if ((event.getEntity().hasPermission("moneythief.bypassPVP"))) {
+            if (hasPerm == true) {
                 return;
             }
             double lost = Config.PVE.getLost();
@@ -82,12 +131,12 @@ public class PlayerKillerListener implements Listener {
         double gained = Config.PVP.getGained();
         double lost = Config.PVP.getLost();
 
-
+        log.log(Level.INFO,"[MoneyThief] debug - in pvp with event="+event.getEventName());
         if (gained != 0) {
 
             Player killed = event.getEntity();
             Player killer = event.getEntity().getKiller();
-
+            log.log(Level.INFO,"[MoneyThief] debug - killer="+killer.getName()+", killed="+killed.getName());
 
             double balKilled = econ.getBalance(killed);
 

@@ -20,7 +20,7 @@ notify-missing-mob: true
 #==================
 
 #Allows the plugin to send anonymous usage statistics to mcstats.org
-metrics: true
+metrics: false
 
 #==================
 #       PVP
@@ -30,7 +30,7 @@ pvp:
   # Percent of money that a player loses when killed via PVP
   percent-taken: 10
   # Percent of money victim loses that doesn't go to killer
-  percent-lost: 10
+  percent-lost: 0
 
 #==================
 #       PVE
@@ -56,7 +56,7 @@ pve:
 
 message:
   general:
-    no-perms: "&4Bugger off, you don't have the right permissions!"
+    no-perms: "&4Go away, you don't have the right permissions!"
 
   pvp:
       # PVP messages can be processed with the following codes:
@@ -134,97 +134,117 @@ groups:
   # Mobs are expandable. If I've missed one, simply put it's name below.
   # Mobs have two values, a high and a low. The value given to the killer
   # randomly calculated between the two values.
+#Passive Mobs
 mobs:
   PIG:
-  - 5.0
-  - 10.0
+  - 1.0
+  - 2.0
   COW:
-  - 5.0
-  - 10.0
+  - 1.0
+  - 2.0
   SHEEP:
-  - 5.0
-  - 10.0
+  - 1.0
+  - 2.0
   CHICKEN:
-  - 5.0
-  - 10.0
+  - 0.0
+  - 1.0
   BAT:
-  - 5.0
-  - 10.0
+  - 1.0
+  - 2.0
   RABBIT:
-  - 5.0
-  - 10.0
+  - 1.0
+  - 1.0
   SNOWMAN:
-  - 5.0
+  - 1.0
   - 10.0
   IRON_GOLEM:
-  - 5.0
-  - 10.0
+  - 0.0
+  - 0.0
   MUSHROOM_COW:
-  - 5.0
-  - 10.0
+  - 1.0
+  - 3.0
   OCELOT:
-  - 5.0
-  - 10.0
+  - 1.0
+  - 3.0
   SQUID:
-  - 5.0
-  - 10.0
+  - 0.0
+  - 0.5
+  SALMON:
+  - 0.0
+  - 0.5
+  COD:
+  - 0.0
+  - 0.5
   VILLAGER:
-  - 5.0
-  - 10.0
-  WOLF:
-  - 5.0
-  - 10.0
-  HORSE:
-  - 5.0
-  - 10.0
-  CAVE_SPIDER:
+  - 0.0
+  - 0.0
+  ZOMBIE_VILLAGER:
   - 10.0
   - 20.0
+  WOLF:
+  - 1.0
+  - 3.0
+  HORSE:
+  - 1.0
+  - 2.0
+#Hostile Mobs
+  CAVE_SPIDER:
+  - 5.0
+  - 10.0
+  BLAZE:
+  - 10.0
+  - 15.0
   SLIME:
   - 5.0
   - 10.0
   CREEPER:
-  - 10.0
-  - 20.0
+  - 1.0
+  - 3.0
   SKELETON:
-  - 10.0
-  - 20.0
+  - 2.0
+  - 4.0
+  STRAY:
+  - 3.0
+  - 5.0
   ZOMBIE:
-  - 10.0
-  - 20.0
+  - 2.0
+  - 3.0
+  HUSK:
+  - 3.0
+  - 4.0
   ENDER_DRAGON:
   - 150.0
   - 200.0
   ENDERMAN:
-  - 10.0
-  - 20.0
+  - 5.0
+  - 15.0
   ENDERMITE:
   - 5.0
-  - 10.0
+  - 8.0
   GHAST:
-  - 10.0
-  - 20.0
+  - 5.0
+  - 15.0
   GUARDIAN:
-  - 10.0
-  - 20.0
+  - 2.0
+  - 8.0
   MAGMA_CUBE:
+  - 5.0
   - 10.0
-  - 20.0
   PIG_ZOMBIE:
   - 10.0
-  - 20.0
+  - 15.0
   SILVERFISH:
-  - 10.0
-  - 20.0
+  - 1.0
+  - 2.0
   SPIDER:
-  - 10.0
-  - 20.0
+  - 1.0
+  - 2.0
   WITCH:
-  - 10.0
-  - 20.0
+  - 3.0
+  - 5.0
   WITHER:
+  - 100.0
   - 150.0
-  - 200.0
   # When enabled, DEFAULT will apply to any mob that's not listed here.
   #DEFAULT:
   #- 5.0
