@@ -13,7 +13,7 @@ Fork of the plugin by Ratismal and modified to work on OB-Minecraft.
 
 # Authors
 * **Ratismal** - *Initial work* - [Ratismal](https://github.com/Ratismal)
-* F451 - Updated to 1.16 and to use on the OB-Minecraft network.
+* F451 - Updated to 1.17 and compiled with Java 16 to use on the OB-Minecraft network.
 
 # License
 MoneyThief uses the MIT license. See the 'LICENSE' file for details.
