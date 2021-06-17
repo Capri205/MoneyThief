@@ -70,7 +70,8 @@ public class MoneyThief extends JavaPlugin {
         this.pluginconfig = new Config(getConfig());
 
         if (!setupEconomy()) {
-            log.severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
+            log.severe(String.format("[%s] - Disabled due to Vault or economy plugin dependency issue!", getDescription().getName()));
+            log.info("Make sure the Vault plugin or a suitable economy plugin like EssentialsX are installed and active");
             getServer().getPluginManager().disablePlugin(this);
             return;
         } else {
@@ -156,6 +157,7 @@ public class MoneyThief extends JavaPlugin {
         }
         RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
         if (rsp == null) {
+        	
             return false;
         }
         econ = rsp.getProvider();

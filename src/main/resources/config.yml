@@ -134,117 +134,213 @@ groups:
   # Mobs are expandable. If I've missed one, simply put it's name below.
   # Mobs have two values, a high and a low. The value given to the killer
   # randomly calculated between the two values.
-#Passive Mobs
+#Passive and Neutral Mobs
 mobs:
-  PIG:
+  AXOLOTL:
+  - 4.0
+  - 6.0
+  BAT:
   - 1.0
   - 2.0
-  COW:
-  - 1.0
-  - 2.0
-  SHEEP:
+  BEE:
+  - 0.1
+  - 0.2
+  CAT:
   - 1.0
   - 2.0
   CHICKEN:
   - 0.0
   - 1.0
-  BAT:
+  COD:
+  - 0.0
+  - 0.5
+  COW:
+  - 1.0
+  - 2.0
+  DOLPHIN:
+  - 2.0
+  - 3.0
+  DONKEY:
+  - 3.0
+  - 4.0
+  ENDERMAN:
+  - 5.0
+  - 15.0
+  FOX:
+  - 2.0
+  - 5.0
+  GLOW_SQUID:
+  - 2.0
+  - 3.0
+  GOAT:
+  - 2.0
+  - 3.0
+  HORSE:
+  - 1.0
+  - 2.0
+  IRON_GOLEM:
+  - 0.0
+  - 0.0
+  LLAMA:
+  - 1.0
+  - 4.0
+  MUSHROOM_COW:
+  - 1.0
+  - 3.0
+  MULE:
+  - 3.0
+  - 4.0
+  OCELOT:
+  - 1.0
+  - 3.0
+  PANDA:
+  - 3.0
+  - 4.0
+  PARROT:
+  - 1.0
+  - 2.0
+  PIG:
+  - 1.0
+  - 2.0
+  PIGLIN:
+  - 2.0
+  - 3.0
+  POLAR_BEAR:
+  - 8.0
+  - 10.0
+  PUFFERFISH:
   - 1.0
   - 2.0
   RABBIT:
   - 1.0
   - 1.0
-  SNOWMAN:
-  - 1.0
-  - 10.0
-  IRON_GOLEM:
-  - 0.0
-  - 0.0
-  MUSHROOM_COW:
-  - 1.0
-  - 3.0
-  OCELOT:
-  - 1.0
-  - 3.0
-  SQUID:
-  - 0.0
-  - 0.5
   SALMON:
   - 0.0
   - 0.5
-  COD:
+  SHEEP:
+  - 1.0
+  - 2.0
+  SNOWMAN:
+  - 1.0
+  - 10.0
+  SQUID:
   - 0.0
   - 0.5
+  STRIDER:
+  - 2.0
+  - 4.0
+  TROPICAL_FISH:
+  - 0.5
+  - 0.75
+  TURTLE:
+  - 1.0
+  - 1.5
   VILLAGER:
   - 0.0
   - 0.0
-  ZOMBIE_VILLAGER:
-  - 10.0
-  - 20.0
+  WANDERING_TRADER:
+  - 0.0
+  - 0.0
   WOLF:
   - 1.0
   - 3.0
-  HORSE:
-  - 1.0
-  - 2.0
 #Hostile Mobs
-  CAVE_SPIDER:
-  - 5.0
-  - 10.0
   BLAZE:
   - 10.0
   - 15.0
-  SLIME:
+  CAVE_SPIDER:
+  - 3.0
   - 5.0
-  - 10.0
   CREEPER:
   - 1.0
   - 3.0
-  SKELETON:
-  - 2.0
-  - 4.0
-  STRAY:
+  DROWNED:
   - 3.0
   - 5.0
-  ZOMBIE:
-  - 2.0
-  - 3.0
-  HUSK:
-  - 3.0
-  - 4.0
+  ELDER_GUARDIAN:
+  - 20.0
+  - 40.0
   ENDER_DRAGON:
   - 150.0
   - 200.0
-  ENDERMAN:
-  - 5.0
-  - 15.0
   ENDERMITE:
   - 5.0
   - 8.0
+  EVOKER:
+  - 10.0
+  - 30.0
   GHAST:
   - 5.0
-  - 15.0
+  - 15.0  
   GUARDIAN:
   - 2.0
   - 8.0
+  HOGLIN:
+  - 8.0
+  - 15.0
+  HUSK:
+  - 3.0
+  - 4.0
   MAGMA_CUBE:
   - 5.0
   - 10.0
-  PIG_ZOMBIE:
+  PHANTOM:
+  - 20.0
+  - 40.0
+  PIGLIN_BRUTE:
+  - 20.0
+  - 30.0
+  ZOMBIFIED_PIGLIN:
   - 10.0
   - 15.0
+  PILLAGER:
+  - 10.0
+  - 15.0
+  RAVAGER:
+  - 40.0
+  - 50.0
+  SHULKER:
+  - 15.0
+  - 20.0
   SILVERFISH:
   - 1.0
   - 2.0
+  SKELETON:
+  - 2.0
+  - 4.0
+  SLIME:
+  - 2.0
+  - 3.0
   SPIDER:
   - 1.0
   - 2.0
+  STRAY:
+  - 3.0
+  - 5.0
+  VEX:
+  - 10.0
+  - 15.0
+  VINDICATOR:
+  - 20.0
+  - 25.0
   WITCH:
   - 3.0
   - 5.0
   WITHER:
   - 100.0
   - 150.0
+  WITHER_SKELETON:
+  - 30.0
+  - 50.0
+  ZOGLIN:
+  - 5.0
+  - 8.0
+  ZOMBIE:
+  - 2.0
+  - 3.0
+  ZOMBIE_VILLAGER:
+  - 10.0
+  - 20.0
   # When enabled, DEFAULT will apply to any mob that's not listed here.
   #DEFAULT:
   #- 5.0
